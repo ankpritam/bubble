@@ -1,0 +1,29 @@
+.image-meme-settings {
+  padding: 15px;
+  border: 2px dashed #ccc;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.image-meme-settings h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.image-meme-settings input[type="file"] {
+  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-meme-settings .drop-zone-text {
+  color: #777;
+  font-size: 0.9em;
+}
+
+.image-meme-settings.drag-over {
+  border-color: #007bff;
+  background-color: #e9f5ff;
+}

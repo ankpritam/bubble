@@ -1,0 +1,36 @@
+.pixel-bubble-settings {
+  padding: 10px;
+  border: 1px dashed #ccc;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+}
+
+.pixel-bubble-settings h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.pixel-bubble-settings div {
+  margin-bottom: 8px;
+}
+
+.pixel-bubble-settings label {
+  margin-right: 5px;
+}
+
+.pixel-bubble-settings select,
+.pixel-bubble-settings input[type="checkbox"],
+.pixel-bubble-settings button {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+}
+
+.pixel-bubble-settings button {
+  background-color: #e7e7e7;
+  cursor: pointer;
+}
+
+.pixel-bubble-settings button:hover {
+  background-color: #d7d7d7;
+}
