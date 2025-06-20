@@ -1,0 +1,32 @@
+.bubble-library {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.bubble-library h5 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #333;
+}
+
+.bubble-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.bubble-option-button {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.bubble-option-button:hover {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+}

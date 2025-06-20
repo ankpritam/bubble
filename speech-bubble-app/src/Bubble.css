@@ -1,0 +1,77 @@
+.bubble {
+  color: white;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  word-wrap: break-word;
+  user-select: none;
+  /* position: absolute, display:flex etc. are set by inline styles in Bubble.js */
+}
+
+.bubble.editing {
+  /* Optional: slightly different appearance when editing, e.g., outline */
+  /* outline: 2px solid #007bff; */
+  cursor: default; /* No grab cursor when editing */
+}
+
+.bubble-text-content {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  /* pointer-events: none; */ /* Removed: We need pointer events for double click to work on text area */
+  /* Instead, the textarea itself will capture clicks when visible */
+  display: flex; /* Added to help center multiline text if text-align alone is not enough */
+  align-items: center;
+  justify-content: center;
+}
+
+.bubble-edit-textarea {
+  /* Style to make textarea blend in */
+  width: 100%;
+  height: 100%;
+  border: none;
+  resize: none;
+  text-align: center;
+  background: transparent;
+  color: inherit; /* Inherit text color from parent bubble */
+  padding: 0; /* Remove default padding if any */
+  margin: 0;
+  font-family: inherit; /* Inherit font from parent bubble */
+  font-size: inherit;   /* Inherit font size from parent bubble */
+  line-height: inherit; /* Inherit line height */
+  overflow-y: auto; /* Allow scrolling for longer text */
+  box-shadow: none;
+  outline: none; /* Remove focus outline if desired, or style it */
+}
+
+
+.bubble-rect {
+  /* Styles specific to rect if any */
+}
+
+.bubble-cloud {
+  /* Styles specific to cloud if any */
+}
+
+.bubble-tail-down {
+  /* Styles specific to tail-down if any */
+}
+
+.resize-handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  z-index: 10; /* Ensure handles are on top */
+}
+
+.resize-handle-br {
+  bottom: -5px; /* Position slightly outside for easier grabbing */
+  right: -5px;
+  cursor: nwse-resize;
+}
+
+/* Add other handles if needed:
+.resize-handle-bl { bottom: -5px; left: -5px; cursor: nesw-resize; }
+.resize-handle-tr { top: -5px; right: -5px; cursor: nesw-resize; }
+.resize-handle-tl { top: -5px; left: -5px; cursor: nwse-resize; }
+*/

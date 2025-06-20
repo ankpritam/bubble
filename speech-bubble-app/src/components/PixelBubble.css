@@ -1,0 +1,20 @@
+/* Styles for the PixelBubble component */
+
+.pixel-bubble-wrapper {
+  /* The wrapper div receives absolute positioning from inline styles in PixelBubble.js */
+  /* No additional CSS needed here unless for specific wrapper-level effects not handled by canvas. */
+}
+
+/* The <canvas> element itself */
+/* Usually, canvas display properties (width, height, border) are set via its attributes or JS. */
+/* CSS can be used for fallback or additional non-drawn elements if any. */
+canvas {
+  /* Example: if you want a border directly via CSS, though it's often drawn in JS for pixel art */
+  /* border: 1px solid #ccc; */
+
+  /* Ensure crisp rendering of pixel art if not handled by JS context settings */
+  image-rendering: -moz-crisp-edges;          /* Firefox */
+  image-rendering: -webkit-crisp-edges;       /* Webkit (Chrome, Safari) */
+  image-rendering: pixelated;                 /* General */
+  image-rendering: crisp-edges;               /* General */
+}

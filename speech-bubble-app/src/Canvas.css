@@ -1,0 +1,9 @@
+.canvas-area {
+  border: 1px solid #000;
+  width: 500px;
+  height: 400px;
+  margin: 20px auto; /* Center the canvas */
+  /* display: flex; justify-content: center; align-items: center; */ /* Removed to allow absolute positioning of children */
+  background-color: #fff;
+  position: relative; /* Crucial for absolute positioning of Bubble components */
+}
