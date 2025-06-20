@@ -1,77 +1,85 @@
 .bubble {
-  color: white;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-  word-wrap: break-word;
-  user-select: none;
-  /* position: absolute, display:flex etc. are set by inline styles in Bubble.js */
+  /* The main div is now a container for SVG and text wrapper. */
+  /* It gets position:absolute and width/height for the SVG viewBox from inline styles. */
+  /* user-select: none is set inline via divStyle in Bubble.js */
+  /* cursor is also set inline via divStyle */
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.15); /* Soften shadow slightly */
 }
 
 .bubble.editing {
-  /* Optional: slightly different appearance when editing, e.g., outline */
-  /* outline: 2px solid #007bff; */
-  cursor: default; /* No grab cursor when editing */
+  /* outline: 1px solid #777; */ /* Optional: visual cue for editing */
 }
 
+.bubble svg {
+  /* Ensure SVG doesn't add extra space if its content overflows due to strokeWidth */
+  display: block;
+}
+
+.bubble-content-wrapper {
+  /* This div is absolutely positioned on top of the SVG bubble body */
+  /* It handles text display and editing area */
+  /* display:flex, alignItems, justifyContent are set inline */
+  pointer-events: none; /* Allow double-click to pass through to the main bubble div for editing */
+  color: white; /* Default text color, can be overridden by specific bubble styles if needed */
+  word-wrap: break-word;
+}
+
+.bubble.editing .bubble-content-wrapper {
+  pointer-events: auto; /* Enable pointer events for textarea when editing */
+}
+
+
 .bubble-text-content {
+  /* For displaying static text */
   width: 100%;
   height: 100%;
-  text-align: center;
-  /* pointer-events: none; */ /* Removed: We need pointer events for double click to work on text area */
-  /* Instead, the textarea itself will capture clicks when visible */
-  display: flex; /* Added to help center multiline text if text-align alone is not enough */
+  display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  /* pointer-events: none; is on parent .bubble-content-wrapper when not editing */
 }
 
 .bubble-edit-textarea {
-  /* Style to make textarea blend in */
   width: 100%;
   height: 100%;
   border: none;
   resize: none;
   text-align: center;
   background: transparent;
-  color: inherit; /* Inherit text color from parent bubble */
-  padding: 0; /* Remove default padding if any */
+  color: inherit;
+  padding: 0;
   margin: 0;
-  font-family: inherit; /* Inherit font from parent bubble */
-  font-size: inherit;   /* Inherit font size from parent bubble */
-  line-height: inherit; /* Inherit line height */
-  overflow-y: auto; /* Allow scrolling for longer text */
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  overflow-y: auto;
   box-shadow: none;
-  outline: none; /* Remove focus outline if desired, or style it */
+  outline: 1px solid rgba(255,255,255,0.5); /* Light outline for textarea */
+  pointer-events: auto; /* Crucial: ensure textarea itself gets events */
 }
 
-
-.bubble-rect {
-  /* Styles specific to rect if any */
-}
-
-.bubble-cloud {
-  /* Styles specific to cloud if any */
-}
-
-.bubble-tail-down {
-  /* Styles specific to tail-down if any */
+/* Specific style type classes are mainly for identification now, as SVG handles shapes/colors */
+.bubble-rect,
+.bubble-rect-tail-down,
+.bubble-rect-tail-up,
+.bubble-rect-tail-left,
+.bubble-rect-tail-right,
+.bubble-cloud,
+.bubble-cloud-tail-down {
+  /* Common styles or overrides if any */
 }
 
 .resize-handle {
-  position: absolute;
+  position: absolute; /* Positioned relative to the main bubble div */
   width: 10px;
   height: 10px;
   background-color: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.7);
-  z-index: 10; /* Ensure handles are on top */
+  z-index: 10;
 }
 
 .resize-handle-br {
-  bottom: -5px; /* Position slightly outside for easier grabbing */
-  right: -5px;
+  /* Positioned by inline styles in Bubble.js to account for SVG offsets */
   cursor: nwse-resize;
 }
-
-/* Add other handles if needed:
-.resize-handle-bl { bottom: -5px; left: -5px; cursor: nesw-resize; }
-.resize-handle-tr { top: -5px; right: -5px; cursor: nesw-resize; }
-.resize-handle-tl { top: -5px; left: -5px; cursor: nwse-resize; }
-*/
